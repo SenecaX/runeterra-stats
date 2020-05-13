@@ -1,28 +1,40 @@
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: "home",
+    loadChildren: () =>
+      import("./components/home/home.module").then(m => m.HomePageModule)
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: "",
+    redirectTo: "home",
+    pathMatch: "full"
   },
   {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    path: "login",
+    loadChildren: () =>
+      import("./components/login/login.module").then(m => m.LoginPageModule)
   },
   {
-    path: 'registration',
-    loadChildren: () => import('./registration/registration.module').then( m => m.RegistrationPageModule)
+    path: "registration",
+    loadChildren: () =>
+      import("./components/registration/registration.module").then(
+        m => m.RegistrationPageModule
+      )
   },
   {
-    path: 'forgot-password',
-    loadChildren: () => import('./forgot-password/forgot-password.module').then( m => m.ForgotPasswordPageModule)
+    path: "forgot-password",
+    loadChildren: () =>
+      import("./components/forgot-password/forgot-password.module").then(
+        m => m.ForgotPasswordPageModule
+      )
   },
+  {
+    path: 'user-profile',
+    loadChildren: () => import('./components/user-profile/user-profile.module').then( m => m.UserProfilePageModule)
+  }
 ];
 
 @NgModule({
@@ -31,4 +43,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
