@@ -29,7 +29,7 @@ export class AuthService {
       .post<any>(`${this.endpoint}/signin`, user)
       .subscribe((res: any) => {
         localStorage.setItem("access_token", res.token);
-        this.getUserProfile(res._id).subscribe(res => {
+        this.getUserProfile(res.msg._id).subscribe(res => {
           this.currentUser = res;
           this.router.navigate(["user-profile/" + res.msg._id]);
         });

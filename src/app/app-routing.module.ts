@@ -18,7 +18,7 @@ const routes: Routes = [
       import("./components/login/login.module").then(m => m.LoginPageModule)
   },
   {
-    path: "registration",
+    path: "register",
     loadChildren: () =>
       import("./components/registration/registration.module").then(
         m => m.RegistrationPageModule
@@ -32,8 +32,11 @@ const routes: Routes = [
       )
   },
   {
-    path: 'user-profile',
-    loadChildren: () => import('./components/user-profile/user-profile.module').then( m => m.UserProfilePageModule)
+    path: "user-profile/:id",
+    loadChildren: () =>
+      import("./components/user-profile/user-profile.module").then(
+        m => m.UserProfilePageModule
+      )
   }
 ];
 
